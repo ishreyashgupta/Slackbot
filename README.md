@@ -54,7 +54,7 @@ Ensure you have the following installed:
 
 4. **Run the Application**
    ```bash
-   node app.js
+   nodemon app.js
    ```
 
 5. **Expose the Server to the Internet**

@@ -54,16 +54,27 @@ Ensure you have the following installed:
 
 4. **Run the Application**
    ```bash
-   nodemon app.js
+   node app.js
    ```
 
-5. **Expose the Server to the Internet**
+5. **Option 1 Expose the Server to the Internet**
    Use a tool like [ngrok](https://ngrok.com/) to expose your local server for Slack to reach your app:
    ```bash
    ngrok http 3000
    ```
    Update your Slack app’s **Request URL** with the public ngrok URL.
 
+
+   Option 2: Deploy to Render.com (Production)
+
+Create an account on Render.com
+Create a new Web Service and select Node.js.
+Link your GitHub repository to Render.
+Set up any necessary environment variables in the Render dashboard.
+
+Click Deploy to launch your app on Render.com
+
+Update your Slack app’s **Request URL** with the public Render.com URL
 ## About ngrok
 ngrok is a tool that provides a secure tunnel from a public endpoint to a local server. This allows Slack to communicate with your local development environment by forwarding traffic from an ngrok URL to your local server. This is particularly useful for testing interactions and event handling during development.
 
@@ -84,7 +95,9 @@ ngrok is a tool that provides a secure tunnel from a public endpoint to a local 
 
 ## Event and Slash Command URL Handling
 - **Event URL**: This is the endpoint where Slack sends events to your app. It should be configured in your app as `https://<your-ngrok-url>/slack/events`.
-- **Slash Command URL**: This endpoint handles the incoming slash commands and should be set as `https://<your-ngrok-url>/slack/commands`.
+- **Slash Command URL**: This endpoint handles the incoming slash commands and should be set as `https://<your-ngrok-url>/slack/commands`.nable Slack Interactivity
+
+  **Go to Interactivity & Shortcuts** in the Slack app settings.Enable Interactivity and set the Request URL (e.g.,  `https://<your-ngrok-url>/slack/events` or your Render URL).
 
 ## Project Structure
 ```
